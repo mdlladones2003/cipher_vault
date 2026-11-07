@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  --radius: 0.625rem;
+  --background: #080a14e0;
+  --foreground: #e8e6e0;
+  --card: rgba(92, 90, 84, 0.11);
+  --card-foreground: #e8e6e0;
+  --popover: #11131e;
+  --popover-foreground: #e8e6e0;
+  --primary: #5c5a54;
+  --primary-foreground: #e8e6e0;
+  --secondary: rgba(92, 90, 84, 0.08);
+  --secondary-foreground: #e8e6e0;
+  --muted: rgba(92, 90, 84, 0.14);
+  --muted-foreground: #9b978e;
+  --accent: rgba(92, 90, 84, 0.18);
+  --accent-foreground: #e8e6e0;
+  --destructive: #b3261e;
+  --border: rgba(232, 230, 224, 0.12);
+  --input: rgba(232, 230, 224, 0.16);
+  --ring: rgba(232, 230, 224, 0.45);
+  --canvas: rgba(8, 10, 20, 0.88);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    background: var(--canvas);
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    min-height: 100vh;
+    margin: 0;
+    background: var(--canvas);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+  }
+
+  button,
+  [role="button"] {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:not(:disabled):active,
+  [role="button"]:not([aria-disabled="true"]):active {
+    transform: scale(0.98);
+  }
+}
+
+[data-slot="card"] {
+  box-shadow:
+    rgba(0, 0, 0, 0.5) 0 4px 30px 0,
+    rgba(212, 175, 55, 0.06) 0 1px 0 0 inset,
+    rgba(0, 0, 0, 0.3) 0 -1px 0 0 inset;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
