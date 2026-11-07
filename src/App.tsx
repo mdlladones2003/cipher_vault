@@ -36,7 +36,7 @@ export default function App() {
   } = useCipherFiles(settings);
 
   return (
-    <div className="min-h-svh bg-(--canvas)">
+    <div className="min-h-svh min-w-0 overflow-x-hidden bg-(--canvas)">
       <header className="border-b border-white/8 bg-[rgba(8,10,20,0.92)] text-secondary-foreground backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 sm:py-5">
           <div className="flex min-w-0 items-center gap-3">
@@ -54,9 +54,9 @@ export default function App() {
       </header>
 
       <main className="mx-auto flex max-w-6xl flex-col gap-5 px-4 py-5 sm:px-6 sm:py-7">
-        <section className="flex flex-col gap-2 pb-1 sm:flex-row sm:items-end sm:justify-between">
+        <section className="flex min-w-0 flex-col gap-2 pb-1 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="max-w-2xl text-2xl font-semibold tracking-tight sm:text-[2rem] sm:leading-tight">
+            <h2 className="max-w-2xl text-xl font-semibold tracking-tight sm:text-[2rem] sm:leading-tight">
               Transform text without sending it anywhere.
             </h2>
           </div>

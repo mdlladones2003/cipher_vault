@@ -61,8 +61,8 @@ export function CipherPanel({
   return (
     <Card className="h-full">
       <CardHeader>
-        <div className="flex items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
+        <div className="flex min-w-0 items-start justify-between gap-3">
+          <div className="flex min-w-0 items-center gap-3">
             <span
               className={cn(
                 "grid size-9 place-items-center rounded-lg",
@@ -73,12 +73,14 @@ export function CipherPanel({
             >
               <copy.Icon className="size-5" />
             </span>
-            <div>
+            <div className="min-w-0">
               <CardTitle className="text-lg">{copy.title}</CardTitle>
               <CardDescription className="mt-1">{copy.description}</CardDescription>
             </div>
           </div>
-          <Badge variant="outline">{panelFiles.length} file{panelFiles.length === 1 ? "" : "s"}</Badge>
+          <Badge variant="outline" className="shrink-0 whitespace-nowrap">
+            {panelFiles.length} file{panelFiles.length === 1 ? "" : "s"}
+          </Badge>
         </div>
       </CardHeader>
 
@@ -142,7 +144,7 @@ export function CipherPanel({
           />
         </div>
 
-        <div className="flex items-center justify-between">
+        <div className="flex min-w-0 items-center justify-between gap-2">
           <h3 className="text-sm font-semibold">
             {mode === "encrypt" ? "Encrypted files" : "Decrypted files"}
           </h3>
@@ -163,7 +165,7 @@ export function CipherPanel({
             Nothing here yet.
           </p>
         ) : (
-          <ul className="flex max-h-96 flex-col gap-2 overflow-y-auto pr-1">
+          <ul className="flex max-h-96 min-w-0 flex-col gap-2 overflow-y-auto pr-1">
             {panelFiles.map((file) => (
               <FileRow
                 key={file.id}

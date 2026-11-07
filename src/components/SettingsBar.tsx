@@ -17,10 +17,10 @@ export function SettingsBar({ settings, onChange }: SettingsBarProps) {
 
   return (
     <Card className="py-4 shadow-sm">
-      <CardContent className="flex flex-col gap-4 md:flex-row md:items-end">
-        <div className="flex flex-col gap-1.5">
+      <CardContent className="flex min-w-0 flex-col gap-4 md:flex-row md:items-end">
+        <div className="flex min-w-0 flex-col gap-1.5">
           <span className="text-xs font-medium text-muted-foreground">Cipher</span>
-          <div role="radiogroup" aria-label="Cipher method" className="inline-flex rounded-lg bg-muted p-1">
+          <div role="radiogroup" aria-label="Cipher method" className="grid w-full grid-cols-3 rounded-lg bg-muted p-1 md:w-auto md:inline-flex md:gap-0">
             {METHODS.map((m) => (
               <button
                 key={m}
@@ -29,7 +29,7 @@ export function SettingsBar({ settings, onChange }: SettingsBarProps) {
                 aria-checked={settings.method === m}
                 onClick={() => patch({ method: m })}
                 className={cn(
-                  "rounded-md px-3 py-1.5 text-sm font-medium transition-colors outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50",
+                  "min-w-0 rounded-md px-1.5 py-1.5 text-center text-xs font-medium transition-colors outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 sm:px-3 sm:text-sm",
                   settings.method === m
                     ? "bg-primary text-primary-foreground shadow-xs"
                     : "text-muted-foreground hover:text-foreground",

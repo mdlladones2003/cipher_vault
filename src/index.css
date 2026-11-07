@@ -57,6 +57,7 @@
   }
   html {
     background: var(--canvas);
+    overflow-x: hidden;
   }
   body {
     @apply bg-background text-foreground antialiased;

@@ -23,14 +23,14 @@ export function FileRow({ file, dragHint, onPreview, onDownload, onRemove }: Fil
         e.dataTransfer.effectAllowed = "copy";
       }}
       title={`Drag to the ${dragHint} panel`}
-      className="group flex cursor-grab items-center gap-3 rounded-lg border bg-card px-3 py-2.5 shadow-xs transition-colors hover:border-primary/60 active:cursor-grabbing"
+      className="group flex min-w-0 cursor-grab items-center gap-2 rounded-lg border bg-card px-2 py-2.5 shadow-xs transition-colors hover:border-primary/60 active:cursor-grabbing sm:gap-3 sm:px-3"
     >
       <GripVertical className="size-4 shrink-0 text-muted-foreground" aria-hidden />
-      <FileText className="size-5 shrink-0 text-primary" aria-hidden />
+      <FileText className="hidden size-5 shrink-0 text-primary sm:block" aria-hidden />
 
       <div className="min-w-0 flex-1">
         <p className="truncate text-sm font-medium">{file.name}</p>
-        <p className="truncate text-xs text-muted-foreground">
+        <p className="text-xs leading-5 text-muted-foreground sm:truncate">
           {formatBytes(file.size)} · {file.keyLabel} · {formatTime(file.createdAt)}
         </p>
       </div>
